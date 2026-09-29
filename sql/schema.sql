@@ -1,6 +1,6 @@
 CREATE TABLE categories (
     category_id SERIAL PRIMARY KEY,
-    category_name VARCHAR(100) NOT NULL,
+    category_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE products (
@@ -15,14 +15,13 @@ CREATE TABLE products (
 
 CREATE TABLE store (
     store_id SERIAL PRIMARY KEY,
-    store_name VARCHAR(100) NOT NULL,
+    store_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE sales (
     sale_id SERIAL PRIMARY KEY,
-    store_id INTEGER REFERENCES store(store_id),
-    product_id INTEGER REFERENCES products(product_id),
-    sale_date DATE DEFAULT 
+    store_id INTEGER NOT NULL REFERENCES store(store_id),
+    sale_date DATE NOT NULL DEFAULT CURRENT_DATE  
 );
 
 CREATE TABLE sale_item (
