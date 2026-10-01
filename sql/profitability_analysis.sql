@@ -22,4 +22,14 @@ WHERE p.is_active = TRUE
 GROUP BY c.category_id, c.category_name
 ORDER BY gross_profit DESC;
 
-     
+-- products that sell frequently but have low margin 
+SELECT 
+    p.product_name,
+    SUM(s.quantity) AS total_sold,
+    ROUND(AVG(((s.unit_sale_price - p.unit_cost) / s.unit_sale_price) * 100), 2) AS avg_margin 
+FROM products p 
+JOIN sale_items s 
+    ON p.product_id = s.product_id 
+WHERE p.is_active = TRUE 
+GROUP BY p.product_name, p.product_id 
+ORDER BY total_sold DESC, avg_margin ASC;
