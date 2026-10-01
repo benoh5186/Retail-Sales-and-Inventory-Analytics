@@ -8,7 +8,7 @@ The project analyzes simulates sales and inventory data for retail business(auto
 
 ## Business problem 
 
-Management wants to know which products and stores are performing well, which items are at risk of running out of stock, which products may be overstocked, and whether inventory levels are aligned with recent sales demand.
+Management wants to know which products and stores are performing well, which items are at risk of running out of stock, and which products may be overstocked.
 
 ## Key Business Questions 
 
@@ -19,7 +19,6 @@ Management wants to know which products and stores are performing well, which it
 - Which products sell frequently but have low margins?
 - Which products are below reorder level?
 - Which products appear to be overstocked?
-- How does current inventory compare to recent sales demand?
 
 ## Tech Stack
 
