@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS store;
-DROP TABLE IF EXISTS sales
-DROP TABLE IF EXISTS sale_items;
 DROP TABLE IF EXISTS inventory;
+DROP TABLE IF EXISTS sale_items;
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS stores;
+DROP TABLE IF EXISTS categories;
 
 
 CREATE TABLE categories (
@@ -13,6 +13,7 @@ CREATE TABLE categories (
 
 CREATE TABLE products (
     product_id SERIAL PRIMARY KEY, 
+    sku VARCHAR(50) NOT NULL UNIQUE,
     product_name VARCHAR NOT NULL,
     category_id INTEGER NOT NULL REFERENCES categories(category_id),
     unit_cost NUMERIC(10, 2) NOT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE sales (
     sale_date DATE NOT NULL DEFAULT CURRENT_DATE  
 );
 
-CREATE TABLE sale_item (
+CREATE TABLE sale_items (
     sale_item_id SERIAL PRIMARY KEY,
     sale_id INTEGER NOT NULL REFERENCES sales(sale_id),
     product_id INTEGER NOT NULL REFERENCES products(product_id),
